@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 // Port number
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Create an instance of the Express app
 const app = express();
@@ -36,6 +36,6 @@ app.post('/api/notes', (req, res) => {
 });
 
 // Starts the server
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
