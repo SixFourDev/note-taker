@@ -2,6 +2,8 @@
 const express = require('express');
 // Created new router using the express router
 const router = express.Router();
+// Import uniqid module
+const uniqid = require('uniqid');
 
 // Initialized an empty array to store notes
 let notes = [];
@@ -14,11 +16,12 @@ router.get('/notes', (req, res) => {
 
 // Defined POST route for the /notes endpoint
 router.post('/notes', (req, res) => {
-  // Gets note data from the request body
-  const newNote = req.body;
-  // Adds new note to the notes array
+  const newNote = {
+    id: uniqid(), // Generate unique ID for the note
+    title: req.body.title,
+    text: req.body.text,
+  };
   notes.push(newNote);
-  // Sends new note as a JSON response
   res.json(newNote);
 });
 
