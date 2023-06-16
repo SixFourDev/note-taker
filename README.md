@@ -39,4 +39,4 @@ MIT License
 For any questions or inquiries, feel free to reach out to me:
 
 - GitHub: [SixFourDev](https://github.com/SixFourDev)
-- Email: sb94@yahoo.com
+- Email: sb_94@yahoo.com
