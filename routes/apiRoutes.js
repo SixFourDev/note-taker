@@ -25,5 +25,22 @@ router.post('/notes', (req, res) => {
   res.json(newNote);
 });
 
-// Exports the router object avaiable to use in other files
+// Defined DELETE route for the /notes/:id endpoint
+router.delete('/notes/:id', (req, res) => {
+  const noteId = req.params.id;
+
+  // Find the index of the note with the given id
+  const index = notes.findIndex((note) => note.id === noteId);
+
+  if (index !== -1) {
+    // Remove the note from the array
+    notes.splice(index, 1);
+
+    res.json({ message: 'Note deleted successfully' });
+  } else {
+    res.status(404).json({ error: 'Note not found' });
+  }
+});
+
+// Exports the router object available to use in other files
 module.exports = router;
